@@ -21,8 +21,8 @@ public class AplicationDBContext : DbContext
                 SquareMeters = 50,
                 Tariff = 200,
                 Amenity = "",
-                CreatedDate = DateOnly.FromDateTime(DateTime.Now),
-                UpdateDate = DateOnly.FromDateTime(DateTime.Now)
+                CreatedDate = new DateOnly(2025, 6, 29),
+                UpdateDate = new DateOnly(2025, 06, 29),
             },
             new Villa()
             {
@@ -34,8 +34,8 @@ public class AplicationDBContext : DbContext
                 SquareMeters = 40,
                 Tariff = 150,
                 Amenity = "",
-                CreatedDate = DateOnly.FromDateTime(DateTime.Now),
-                UpdateDate = DateOnly.FromDateTime(DateTime.Now)
+                CreatedDate = new DateOnly(2025, 06, 29),
+                UpdateDate = new DateOnly(2025, 06, 29),
             }
         );
     }
