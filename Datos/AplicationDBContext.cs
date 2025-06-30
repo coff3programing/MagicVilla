@@ -7,9 +7,13 @@ namespace MagicVilla_API.Datos;
 public class AplicationDBContext : DbContext
 {
     public DbSet<Villa> Villas { get; set; }
+    public DbSet<VillaNumber> villaNumbers { get; set; }
     public AplicationDBContext(DbContextOptions<AplicationDBContext> options) : base(options) { }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        DateTime now = DateTime.Now;
+        DateOnly get_date = new DateOnly(now.Year, now.Month, now.Day);
+
         modelBuilder.Entity<Villa>().HasData(
             new Villa()
             {
@@ -21,8 +25,8 @@ public class AplicationDBContext : DbContext
                 SquareMeters = 50,
                 Tariff = 200,
                 Amenity = "",
-                CreatedDate = new DateOnly(2025, 6, 29),
-                UpdateDate = new DateOnly(2025, 06, 29),
+                CreatedDate = get_date,
+                UpdateDate = get_date
             },
             new Villa()
             {
@@ -34,8 +38,8 @@ public class AplicationDBContext : DbContext
                 SquareMeters = 40,
                 Tariff = 150,
                 Amenity = "",
-                CreatedDate = new DateOnly(2025, 06, 29),
-                UpdateDate = new DateOnly(2025, 06, 29),
+                CreatedDate = get_date,
+                UpdateDate = get_date
             }
         );
     }
